@@ -20,18 +20,18 @@ SIR <- function(tempo, estado, param){
 
 condiçoes_iniciais <- c(
   S=0.999, #Suscetíveis iniciais
-  I=0.1,   #Infectados iniciais
+  I=0.001,   #Infectados iniciais
   R=0      #Recuperados iniciais
 )
 
 param <- c(
-  beta=0.3,   #taxa de transmissão (por contato)
-  gamma=0.1   #taxa de recuperação (1/duração méda da doença)
+  beta=0.2,   #taxa de transmissão (por contato)
+  gamma=0.2/5   #taxa de recuperação (1/duração méda da doença)
 )
 
 # Tempo em dias
 
-tempo <- seq(0, 200, by=2)
+tempo <- seq(0, 200, by=1)
 
 # Resolução do modelo usando ode
 
@@ -48,4 +48,6 @@ out.m = melt(out_df, id.vars='time')
 plot <- ggplot(out.m, aes(time, value,
 color = variable)) +
 geom_point()
+
 print(plot)
+
