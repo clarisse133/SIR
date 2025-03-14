@@ -25,8 +25,8 @@ condiçoes_iniciais <- c(
 )
 
 param <- c(
-  beta=0.2,   #taxa de transmissão (por contato)
-  gamma=0.2/5   #taxa de recuperação (1/duração méda da doença)
+  beta=0.3,   #taxa de transmissão (por contato)
+  gamma=0.1   #taxa de recuperação (1/duração méda da doença)
 )
 
 # Tempo em dias
@@ -45,9 +45,16 @@ out_df <- as.data.frame(output)
 
 out.m = melt(out_df, id.vars='time')
 
-plot <- ggplot(out.m, aes(time, value,
-color = variable)) +
-geom_point()
+plot <- ggplot(out.m, aes(time, value, color= variable)) +
+
+geom_line(linewidth= 1.2) +
+
+labs(x="Tempo (dias)", y="Porcentagem populacional" ) +
+
+ggtitle("Gráfico simulação SIR") +
+
+scale_color_manual(values = c("S"= "black", "I"="red", "R"="blue"))
 
 print(plot)
+
 
