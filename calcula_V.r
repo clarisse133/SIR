@@ -19,6 +19,5 @@ calcular_v <- function(m, a, P, n){
 
   est_v <- (m * a^2 * P^n) / (-log(P))
 
-  print(paste("O valor estimado da capacidade vetorial é:", round(est_v, 3)))
-  est_v
+  return(est_v)
 }
