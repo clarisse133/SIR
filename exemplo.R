@@ -1,4 +1,4 @@
-source("calculo_capac_vetorial")
+source("SIR/calcula_V.r")
 
 m <- c(2, 1.5, 3)
 a <- c(1.3, 1.3, 1.3)
@@ -11,6 +11,12 @@ yv <- calcular_v(m, a, p, n)
 
 y
 yv
+
+df <- data.frame(especie = c("Aedes A", "Aedes B", "Aedes C"), capacidade_vetorial = yv)
+
+ggplot(aes(x=especie, y= capacidade_vetorial), data = df) + geom_col() +
+  coord_flip() +
+  theme_bw()
 
 p<0
 

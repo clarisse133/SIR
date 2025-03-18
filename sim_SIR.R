@@ -19,15 +19,25 @@ SIR <- function(tempo, estado, param){
 # Vetores de condições iniciais e parâmetros
 
 condiçoes_iniciais <- c(
-  S=0.999, #Suscetíveis iniciais
-  I=0.001,   #Infectados iniciais
+  S=0.99, #Suscetíveis iniciais
+  I=0.01,   #Infectados iniciais
   R=0      #Recuperados iniciais
 )
+
+# valores originais
 
 param <- c(
   beta=0.3,   #taxa de transmissão (por contato)
   gamma=0.1   #taxa de recuperação (1/duração méda da doença)
 )
+
+#modificacao dia 18/03
+param <- c(
+  beta=0.5,   #taxa de transmissão (por contato)
+  gamma=0.05   #taxa de recuperação (1/duração méda da doença)
+)
+
+param["beta"]/param["gamma"]
 
 # Tempo em dias
 
@@ -45,7 +55,7 @@ out_df <- as.data.frame(output)
 
 out.m = melt(out_df, id.vars='time')
 
-plot <- ggplot(out.m, aes(time, value, color= variable)) +
+plot <- ggplot(out.m, aes(x=time, y=100*value, color= variable)) +
 
 geom_line(linewidth= 1.2) +
 
@@ -53,7 +63,9 @@ labs(x="Tempo (dias)", y="Porcentagem populacional" ) +
 
 ggtitle("Gráfico simulação SIR") +
 
-scale_color_manual(values = c("S"= "black", "I"="red", "R"="blue"))
+scale_color_manual(values = c("S"= "black", "I"="red", "R"="blue")) +
+  coord_cartesian(xlim=c(0,50)) +
+  theme_bw()
 
 print(plot)
 
