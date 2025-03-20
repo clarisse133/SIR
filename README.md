@@ -1,12 +1,12 @@
 # Nome do Projeto
 Simulação SIR
 
-Constrói um gráfico do número de S, I e R em função do tempo. Calcula estimativas de RO e V.
+Constroi um grafico do numero de S, I e R em funcao do tempo. Calcula estimativas de RO e V.
 
 ## Uso
 
-Uso para obter aproximações e uma visão geral das variações de cada estado(S,I,R)
+Uso para obter aproximacoes e uma visao geral das variacoes de cada estado(S,I,R)
 
 ## Licença
 
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto esta licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
