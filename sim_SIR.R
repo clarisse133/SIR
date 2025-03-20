@@ -68,5 +68,3 @@ scale_color_manual(values = c("S"= "black", "I"="red", "R"="blue")) +
   theme_bw()
 
 print(plot)
-
-
