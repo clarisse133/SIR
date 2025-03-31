@@ -14,22 +14,22 @@ library(ggplot)
 
 calcula_cap_vet <- function(m, a, p, n, b){
 
-  cap_v <- ((m * a^2 * p^n * b))/(- log(p))
+  cap_v <- ((m*(a^2)*(p^n)*b))/(-log(p))
 
-  return(round(cap_v, 4))
+  return(round(cap_v, 3))
 }
 #vetores de parametros
-m <- c(4, 3.6, 4.8, 8.2)
-a <- c(0.75, 0.20, 0.19, 0.14)
-p <- c(0.885, 0.801, 0.780, 0.760)
-b <- c(0.64, 0.60, 0.20, 0.76)
+m <- c(4, 3.6, 8.2, 4.8)
+a <- c(0.75, 0.20, 0.14, 0.19)
+p <- c(0.885, 0.801, 0.760, 0.780)
+b <- c(0.64, 0.60, 0.76, 0.20)
 n <- 10
 
 #função geral
 f <- calcula_cap_vet(m, a, p, n, b)
 
 #data frame com os dados
-df <- data.frame(Especie = c("Aedes aegipty", "Aedes albopictus", "Aedes vigilax", "Aedes notos."),
+df <- data.frame(Especie = c("Aedes Aegypti", "Aedes Albopictus", "Aedes Vigilax", "Aedes Notoscriptus"),
       Capacidade_vetorial = f)
 
 #criação do gráfico de barras
